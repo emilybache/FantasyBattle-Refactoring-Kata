@@ -8,6 +8,37 @@ namespace FantasyBattle
         {
             Equipment = equipment;
         }
+
+        
+        public virtual int CalculateBaseDamage() {
+            Equipment equipment = this.Equipment;
+            Item leftHand = equipment.LeftHand;
+            Item rightHand = equipment.RightHand;
+            Item head = equipment.Head;
+            Item feet = equipment.Feet;
+            Item chest = equipment.Chest;
+            return leftHand.BaseDamage +
+                   rightHand.BaseDamage +
+                   head.BaseDamage +
+                   feet.BaseDamage +
+                   chest.BaseDamage;
+        }
+
+        public virtual float CalculateDamageModifier(Player player) {
+            Equipment equipment = this.Equipment;
+            Item leftHand = equipment.LeftHand;
+            Item rightHand = equipment.RightHand;
+            Item head = equipment.Head;
+            Item feet = equipment.Feet;
+            Item chest = equipment.Chest;
+            float strengthModifier = player.Stats.Strength * 0.1f;
+            return strengthModifier +
+                   leftHand.DamageModifier +
+                   rightHand.DamageModifier +
+                   head.DamageModifier +
+                   feet.DamageModifier +
+                   chest.DamageModifier;
+        }
     }
 
     public class Equipment

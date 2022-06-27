@@ -7,26 +7,38 @@ namespace FantasyBattle.Tests
 {
     public class PlayerTest
     {
-
-        // choose this one if you are familiar with mocks
-        [Fact(Skip = "Test is not finished yet")]
-        public void DamageCalculationsWithMocks() {
-            var inventory = new Mock<Inventory>();
-            var stats = new Mock<Stats>();
-            var target = new Mock<SimpleEnemy>();
-
-            var damage = new Player(inventory.Object, stats.Object).CalculateDamage(target.Object);
-            Assert.Equal(10, damage.Amount);
-        }
-
-        // choose this one if you are not familiar with mocks
-        [Fact(Skip = "Test is not finished yet")]
+        [Fact]
         public void DamageCalculations() {
-            Inventory inventory = new Inventory(null);
+            Inventory inventory = new FakeInventory();
             Stats stats = new Stats(0);
-            SimpleEnemy target = new SimpleEnemy(null, null);
+            Target target = new FakeEnemy();
             Damage damage = new Player(inventory, stats).CalculateDamage(target);
             Assert.Equal(10, damage.Amount);
+        }
+    }
+
+    public class FakeEnemy : Target
+    {
+        public override int CalculateSoak(int totalDamage, int soak)
+        {
+            return 0;
+        }
+    }
+
+    public class FakeInventory : Inventory
+    {
+        public FakeInventory() : base(null)
+        {
+        }
+
+        public override int CalculateBaseDamage()
+        {
+            return 10;
+        }
+
+        public override float CalculateDamageModifier(Player player)
+        {
+            return 1.0f;
         }
     }
 }
