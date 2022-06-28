@@ -5,16 +5,13 @@ namespace FantasyBattle
 {
     public abstract class Target
     {
-        public virtual int CalculateSoak(int totalDamage, int soak)
-        {
-            if (this is Player)
-            {
+        public virtual int GetSoak(int totalDamage) {
+            int soak = 0;
+            if (this is Player) {
                 // TODO: Not implemented yet
                 //  Add friendly fire
                 soak = totalDamage;
-            }
-            else if (this is SimpleEnemy simpleEnemy)
-            {
+            } else if (this is SimpleEnemy simpleEnemy) {
                 soak = (int)Math.Round(
                     simpleEnemy.Armor.DamageSoak *
                     (
@@ -22,7 +19,6 @@ namespace FantasyBattle
                     ), 0
                 );
             }
-
             return soak;
         }
     }

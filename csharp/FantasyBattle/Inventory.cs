@@ -1,15 +1,24 @@
 namespace FantasyBattle
 {
-    public class Inventory
+    public interface IInventory
+    {
+        int CalculateBaseDamage();
+        float CalculateDamageModifier(Player player);
+    }
+
+    public class Inventory : IInventory
     {
         public Equipment Equipment { get; }
+
+        public Inventory()
+        {
+        }
 
         public Inventory(Equipment equipment)
         {
             Equipment = equipment;
         }
 
-        
         public virtual int CalculateBaseDamage() {
             Equipment equipment = this.Equipment;
             Item leftHand = equipment.LeftHand;
