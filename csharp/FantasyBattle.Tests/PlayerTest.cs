@@ -12,21 +12,21 @@ namespace FantasyBattle.Tests
         [Fact(Skip = "Test is not finished yet")]
         public void DamageCalculationsWithMocks() {
             var inventory = new Mock<Inventory>();
-            var stats = new Mock<Stats>();
-            var target = new Mock<SimpleEnemy>();
+            var stats = new Stats(1);
+            var target = new Mock<Target>();
 
-            var damage = new Player(inventory.Object, stats.Object).CalculateDamage(target.Object);
-            Assert.Equal(10, damage.Amount);
+            var damage = new Player(inventory.Object, stats).CalculateDamage(target.Object);
+            Assert.Equal(9, damage.Amount);
         }
 
         // choose this one if you are not familiar with mocks
         [Fact(Skip = "Test is not finished yet")]
         public void DamageCalculations() {
             Inventory inventory = new Inventory(null);
-            Stats stats = new Stats(0);
-            SimpleEnemy target = new SimpleEnemy(null, null);
+            Stats stats = new Stats(1);
+            Target target = new SimpleEnemy(null, null);
             Damage damage = new Player(inventory, stats).CalculateDamage(target);
-            Assert.Equal(10, damage.Amount);
+            Assert.Equal(9, damage.Amount);
         }
     }
 }
