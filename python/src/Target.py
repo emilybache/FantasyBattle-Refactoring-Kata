@@ -1,7 +1,7 @@
 from typing import List
 
-from Armor import Armor
-from Buff import Buff
+from src.Armor import Armor
+from src.Buff import Buff
 
 
 class Target:
