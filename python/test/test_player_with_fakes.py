@@ -2,15 +2,14 @@ import pytest
 
 from Armor import SimpleArmor
 from Buff import BasicBuff
-from Equipment import Equipment
 from Item import Item
 from Player import Player
 from Stats import Stats
 from Target import Target, SimpleEnemy
-from test_player_with_stubs import standard_items
+from fixtures import standard_items
 
 
-class FakeEquipment(Equipment):
+class FakeEquipment:
 
     def __init__(self, left_hand: Item, right_hand: Item, head: Item, chest: Item, feet: Item) -> None:
         self.feet = feet

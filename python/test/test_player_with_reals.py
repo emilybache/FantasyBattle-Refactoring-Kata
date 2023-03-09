@@ -1,11 +1,10 @@
-from unittest.mock import Mock
-
 import pytest
 
 from Armor import SimpleArmor
 from Buff import BasicBuff
 from Equipment import Equipment
 from Inventory import Inventory
+from Item import BaseItem
 from Player import Player
 from Stats import Stats
 from Target import Target, SimpleEnemy
@@ -14,20 +13,20 @@ from fixtures import standard_items
 
 @pytest.fixture
 def inventory(standard_items):
-    inventory = Mock(Inventory)
-    equipment = Mock(Equipment)
-    inventory.equipment = equipment
-    equipment.left_hand = standard_items["left_hand"]
-    equipment.right_hand = standard_items["right_hand"]
-    equipment.head = standard_items["head"]
-    equipment.chest = standard_items["chest"]
-    equipment.feet = standard_items["feet"]
+    equipment = Equipment(
+        left_hand=standard_items["left_hand"],
+        right_hand=standard_items["right_hand"],
+        head=standard_items["head"],
+        chest=standard_items["chest"],
+        feet=standard_items["feet"],
+    )
+    inventory = Inventory(equipment)
     return inventory
 
 
 def test_damage_calculations_empty_target(inventory):
     stats = Stats(1)
-    target = Mock(Target)
+    target = Target()
     damage = Player(inventory, stats).calculate_damage(target)
     assert damage.amount == 114
 
