@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using Moq;
 using Xunit;
@@ -77,6 +78,54 @@ namespace FantasyBattle.Tests
             inventory = new FakeInventory(equipment);
         }
 
+        [Fact]
+        public void DamageCalculationsWithEmptyTarget()
+        {
+            var stats = new Stats(1);
+            Target target = new FakeEnemy();
+
+            var damage = new Player(inventory, stats).CalculateDamage(target);
+
+            Assert.Equal(114, damage.Amount);
+        }
+
+        [Fact]
+        public void DamageCalculationsWithPlayerTarget()
+        {
+            var stats = new Stats(1);
+            var player = new Player(inventory, stats);
+            Target target = player;
+
+            var damage = player.CalculateDamage(target);
+
+            Assert.Equal(0, damage.Amount);
+        }
+
+        [Fact]
+        public void DamageCalculationsWithSimpleEnemyTarget()
+        {
+            var stats = new Stats(1);
+            var player = new Player(inventory, stats);
+            var target = new SimpleEnemy(new SimpleArmor(5), new List<Buff> { new BasicBuff(1.0f, 1.0f) });
+
+            var damage = player.CalculateDamage(target);
+
+            Assert.Equal(104, damage.Amount);
+        }
+    }
+
+    public class PlayerTestWithReals
+    {
+        private Inventory inventory;
+        private Equipment equipment;
+
+        public PlayerTestWithReals()
+        {
+            equipment = new Equipment(ItemTestData.leftHand, ItemTestData.rightHand, ItemTestData.head,
+                ItemTestData.feet, ItemTestData.chest);
+            inventory = new Inventory(equipment);
+        }
+        
         [Fact]
         public void DamageCalculationsWithEmptyTarget()
         {
