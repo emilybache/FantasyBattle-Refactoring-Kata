@@ -173,17 +173,7 @@ namespace FantasyBattle.Tests
         {
             Equipment = equipment;
         }
-
-        public int CalculateBaseDamage()
-        {
-            return 10;
-        }
-
-        public float CalculateDamageModifier(Player player)
-        {
-            return 1.0f;
-        }
-
+        
         public IEquipment Equipment { get; }
     }
 
