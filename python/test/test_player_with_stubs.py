@@ -9,7 +9,6 @@ from Inventory import Inventory
 from Player import Player
 from Stats import Stats
 from Target import Target, SimpleEnemy
-from fixtures import standard_items
 
 
 @pytest.fixture

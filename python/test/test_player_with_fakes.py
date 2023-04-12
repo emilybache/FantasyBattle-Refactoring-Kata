@@ -6,7 +6,6 @@ from Item import Item
 from Player import Player
 from Stats import Stats
 from Target import Target, SimpleEnemy
-from fixtures import standard_items
 
 
 class FakeEquipment:
