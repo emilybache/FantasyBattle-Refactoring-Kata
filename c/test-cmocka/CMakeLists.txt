@@ -41,6 +41,4 @@ function(ADD_CMOCKA_TEST_ENVIRONMENT _TARGET_NAME)
 endfunction()
 
 
-add_subdirectory(simple_test)
-add_subdirectory(sample_test)
-add_subdirectory(uptime)
+add_subdirectory(player_test)

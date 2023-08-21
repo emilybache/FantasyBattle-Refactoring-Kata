@@ -3,11 +3,12 @@
 #include <stddef.h>
 #include "cmocka.h"
 
-#include "sample.h"
+#include "player.h"
 
 static void test_add(void **state)
 {
-    assert_int_equal(42, add(1,2));
+    //Player* player = create_Player(NULL, NULL);
+    assert_int_equal(42, 2);
 }
 
 int main(void) {

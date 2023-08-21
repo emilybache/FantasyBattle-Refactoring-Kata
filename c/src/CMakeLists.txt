@@ -1,5 +1,5 @@
 set(SRC_LIB_NAME src)
-set(SOURCES sample.c)
+set(SOURCES sample.c item.c equipment.c inventory.h inventory.c buff.h buff.c armor.h armor.c damage.h damage.c stats.h stats.c player.h player.c)
 add_library(${SRC_LIB_NAME} ${SOURCES})
 target_sources(${SRC_LIB_NAME} PRIVATE ${SOURCES})
 target_include_directories(${SRC_LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
