@@ -5,7 +5,7 @@ This code is part of a larger fantasy battle game. Players in the game will figh
 
 The kata is designed to teach you something about the [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter). The 'Player' class perhaps doesn't follow this law very well.
 
-Try to write a test for the method 'calculateDamage' on the Player class, without changing any of the production code. Use the description below to help you design a test scenario. Note there are two example test cases to start from. Choose the one you prefer. Give yourself a time box of 10 minutes, then reflect on why this method is hard to test.
+Try to write a test for the method 'calculateDamage' on the Player class, without changing any of the production code. Use the description below to help you design a test scenario. If there are two example test cases to start from, choose the one you prefer. Give yourself a time box of 10 minutes, then reflect on why this method is hard to test.
 
 When you have reflected, you should refactor the 'calculateDamage' method to better follow the Law of Demeter. Also add test cases to cover the functionality in the Player class.
 
