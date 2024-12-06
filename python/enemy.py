@@ -1,11 +1,7 @@
 from typing import List
 
-from src.Armor import Armor
-from src.Buff import Buff
-
-
-class Target:
-    pass
+from gear import Armor, Buff
+from player import Target
 
 
 class SimpleEnemy(Target):
