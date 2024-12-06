@@ -1,9 +1,21 @@
-from Damage import Damage
-from Equipment import Equipment
-from Inventory import Inventory
-from Item import Item
-from Stats import Stats
-from Target import Target, SimpleEnemy
+from gear import *
+from inventory import Inventory, Equipment
+
+
+class Stats:
+    def __init__(self, strength: int) -> None:
+        self.strength = strength
+
+
+class Damage:
+    amount: int
+
+    def __init__(self, amount: int) -> None:
+        self.amount = amount
+
+
+class Target:
+    pass
 
 
 class Player(Target):
@@ -28,11 +40,11 @@ class Player(Target):
         feat: Item = equipment.feet
         chest: Item = equipment.chest
         return (
-            left_hand.base_damage +
-            right_hand.base_damage +
-            head.base_damage +
-            feat.base_damage +
-            chest.base_damage
+                left_hand.base_damage +
+                right_hand.base_damage +
+                head.base_damage +
+                feat.base_damage +
+                chest.base_damage
         )
 
     def _get_damage_modifier(self):
@@ -45,12 +57,12 @@ class Player(Target):
         stats: Stats = self.stats
         strength_modifier: float = stats.strength * 0.1
         return (
-            strength_modifier +
-            left_hand.damage_modifier +
-            right_hand.damage_modifier +
-            head.damage_modifier +
-            feet.damage_modifier +
-            chest.damage_modifier
+                strength_modifier +
+                left_hand.damage_modifier +
+                right_hand.damage_modifier +
+                head.damage_modifier +
+                feet.damage_modifier +
+                chest.damage_modifier
         )
 
     def _get_soak(self, other: Target, total_damage: int):
