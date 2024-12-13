@@ -8,4 +8,6 @@ Damage := Object clone do(
         result
     )
 
+    getAmount := method( amount )
+    
 )

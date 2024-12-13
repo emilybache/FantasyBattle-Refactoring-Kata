@@ -12,4 +12,7 @@ SimpleEnemy := Target clone do(
         result
     )
 
+    getArmor := method( armor )
+    getBuffs := method( buffs )
+
 )

@@ -13,10 +13,10 @@ Player := Target clone do(
     calculateDamage := method(other,
         baseDamage := getBaseDamage
         damageModifier := getDamageModifier
-        totalDamage := (baseDamage * damageModifier).round
+        totalDamage := (baseDamage * damageModifier) round
         soak := getSoak(other, totalDamage)
         
-        Damage with((totalDamage - soak).max(0))
+        Damage with((totalDamage - soak) max(0))
     )
 
     getSoak := method(other, totalDamage,
