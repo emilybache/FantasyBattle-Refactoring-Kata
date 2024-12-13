@@ -1,7 +1,7 @@
 BasicItem := Object clone do(
 
     name := ""
-    baseDamage ::= 0
+    baseDamage := 0
     damageModifier := 0
 
     with := method(name, baseDamage, damageModifier,
@@ -12,4 +12,7 @@ BasicItem := Object clone do(
         result
     )
 
+    getBaseDamage := method(baseDamage)
+    getDamageModifier := method(damageModifier)
+    
 )

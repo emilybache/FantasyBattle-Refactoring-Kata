@@ -1,8 +1,8 @@
 SimpleEnemy := Target clone do(
 
     init := method(
-        self armor ::= nil
-        self buffs ::= list()
+        self armor := nil
+        self buffs := list()
     )
 
     with := method(armor, buffs,

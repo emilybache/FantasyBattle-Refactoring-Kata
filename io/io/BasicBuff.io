@@ -10,11 +10,9 @@ BasicBuff := Object clone do(
         result
     )
 
-
     soakModifier := method(
         soak
     )
-
 
     damageModifier := method(
         damage
