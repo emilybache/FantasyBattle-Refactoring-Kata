@@ -27,12 +27,14 @@ SimpleEnemy enemy = SimpleEnemy(&armor, buffs);
 
 
 TEST(PlayerTest, DamageCalculations) {
+
     //TODO: finish this test case
+
     auto inventory = new Inventory(/*todo*/);
     auto stats = new Stats(0);
     auto target = new SimpleEnemy(/*todo*/, /*todo*/);
+
     auto player =  new Player(*inventory, *stats);
-    
     Damage *damage = player->calculateDamage(*target);
 
     ASSERT_EQ(10, damage->getAmount());
