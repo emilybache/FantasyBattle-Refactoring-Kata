@@ -19,14 +19,15 @@ let enemy: SimpleEnemy = new SimpleEnemy(new SimpleArmor(5), [new BasicBuff(1.0,
 
 describe('Player', () => {
 
-    // TODO: test is not finished!
+  // TODO: test is not finished!
 
-    it('calculates damage', () => {
-        const inventory = new Inventory(null!!);
-        const stats = new Stats(0);
-        const enemy = new SimpleEnemy(null!!, null!!);
+  it('calculates damage', () => {
+    const inventory = new Inventory(null!!);
+    const stats = new Stats(0);
+    const enemy = new SimpleEnemy(null!!, null!!);
 
-        const damage: Damage = new Player(inventory, stats).calculateDamage(enemy);
-        expect(damage.amount).toBe(10);
-    });
+    const damage: Damage = new Player(inventory, stats).calculateDamage(enemy);
+
+    expect(damage.amount).toBe(10);
+  });
 })
