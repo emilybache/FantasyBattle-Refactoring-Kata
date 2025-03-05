@@ -1,0 +1,14 @@
+{
+  "name": "fantasy-battle",
+  "version": "0.1.0",
+  "readme": "README.md",
+  "protos": [
+    "Player"
+  ],
+  "dependencies": {
+    "libs": [],
+    "headers": [],
+    "protos": [],
+    "packages": []
+  }
+}

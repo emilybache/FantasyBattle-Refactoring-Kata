@@ -25,13 +25,13 @@ class Player(Target):
         self.inventory = inventory
 
     def calculate_damage(self, other: Target) -> Damage:
-        base_damage = self._get_base_damage()
-        damage_modifier = self._get_damage_modifier()
+        base_damage = self.__get_base_damage()
+        damage_modifier = self.__get_damage_modifier()
         total_damage = round(base_damage * damage_modifier)
-        soak = self._get_soak(other, total_damage)
+        soak = self.__get_soak(other, total_damage)
         return Damage(max(0, total_damage - soak))
 
-    def _get_base_damage(self):
+    def __get_base_damage(self):
         inventory: Inventory = self.inventory
         equipment: Equipment = inventory.equipment
         left_hand: Item = equipment.left_hand
@@ -40,14 +40,14 @@ class Player(Target):
         feat: Item = equipment.feet
         chest: Item = equipment.chest
         return (
-                left_hand.base_damage +
-                right_hand.base_damage +
-                head.base_damage +
-                feat.base_damage +
-                chest.base_damage
+            left_hand.base_damage +
+            right_hand.base_damage +
+            head.base_damage +
+            feat.base_damage +
+            chest.base_damage
         )
 
-    def _get_damage_modifier(self):
+    def __get_damage_modifier(self):
         equipment: Equipment = self.inventory.equipment
         left_hand: Item = equipment.left_hand
         right_hand: Item = equipment.right_hand
@@ -57,15 +57,15 @@ class Player(Target):
         stats: Stats = self.stats
         strength_modifier: float = stats.strength * 0.1
         return (
-                strength_modifier +
-                left_hand.damage_modifier +
-                right_hand.damage_modifier +
-                head.damage_modifier +
-                feet.damage_modifier +
-                chest.damage_modifier
+            strength_modifier +
+            left_hand.damage_modifier +
+            right_hand.damage_modifier +
+            head.damage_modifier +
+            feet.damage_modifier +
+            chest.damage_modifier
         )
 
-    def _get_soak(self, other: Target, total_damage: int):
+    def __get_soak(self, other: Target, total_damage: int):
         soak: int = 0
         if isinstance(other, Player):
             # TODO: Not implemented yet

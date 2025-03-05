@@ -5,7 +5,8 @@ from inventory import Inventory
 from player import Player, Stats
 from gear import *
 
-@pytest.fixture
+# Helpful test data which corresponds to items listed in the top level README file
+
 def standard_items():
     return {
         "left_hand": BaseItem("round shield", 0, 1.4),
@@ -15,7 +16,6 @@ def standard_items():
         "chest": BaseItem("breastplate of steel", 0, 1.4),
     }
 
-@pytest.fixture
 def enemy():
     return SimpleEnemy(SimpleArmor(5), [BasicBuff(1.0, 1.0)])
 

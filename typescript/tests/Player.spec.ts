@@ -1,11 +1,11 @@
-import {Inventory} from '../src/Inventory';
-import {Stats} from '../src/Stats';
-import {SimpleEnemy} from '../src/SimpleEnemy';
-import {Player} from '../src/Player';
-import {Damage} from '../src/Damage';
-import {BasicItem} from "../src/BasicItem";
-import {SimpleArmor} from "../src/SimpleArmor";
-import {BasicBuff} from "../src/BasicBuff";
+import { Inventory } from '../src/Inventory';
+import { Stats } from '../src/Stats';
+import { SimpleEnemy } from '../src/SimpleEnemy';
+import { Player } from '../src/Player';
+import { Damage } from '../src/Damage';
+import { BasicItem } from "../src/BasicItem";
+import { SimpleArmor } from "../src/SimpleArmor";
+import { BasicBuff } from "../src/BasicBuff";
 
 // Helpful test data which corresponds to items listed in the top level README file
 let shield: BasicItem = new BasicItem("round shield", 0, 1.4);

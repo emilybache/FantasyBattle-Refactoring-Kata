@@ -27,6 +27,18 @@ public class PlayerTest {
         );
     }
 
+    // choose this one if you are familiar with mocks
+    @Disabled("Test is not finished yet")
+    @Test
+    void damageCalculationsWithMocks() {
+        Inventory inventory = mock(Inventory.class);
+        Stats stats = mock(Stats.class);
+        SimpleEnemy target = mock(SimpleEnemy.class);
+
+        Damage damage = new Player(inventory, stats).calculateDamage(target);
+        assertEquals(10, damage.getAmount());
+    }
+
     @Disabled("Test is not finished yet")
     @Test
     void damageCalculations() {

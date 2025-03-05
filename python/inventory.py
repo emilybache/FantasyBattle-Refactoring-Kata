@@ -9,12 +9,12 @@ class Inventory:
 class Equipment:
 
     def __init__(
-            self,
-            left_hand: Item,
-            right_hand: Item,
-            head: Item,
-            chest: Item,
-            feet: Item
+        self,
+        left_hand: Item,
+        right_hand: Item,
+        head: Item,
+        chest: Item,
+        feet: Item
     ) -> None:
         self.chest = chest
         self.feet = feet
